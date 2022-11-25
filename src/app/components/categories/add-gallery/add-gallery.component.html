@@ -1,0 +1,25 @@
+<section class="add-gallery">
+  <a (click)="toggleModal()">
+    <p class="plus">+</p>
+    <p>Pridať kategóriu</p>
+  </a>
+</section>
+
+<section class="create-gallery-overlay"
+  *ngIf="isCreationMode">
+  
+  <section class="create-gallery">
+    <div class="header">
+      <h3>Pridať kategóriu</h3>
+      <a (click)="toggleModal()"><i class="pi pi-times"></i></a>
+    </div>
+    <div class="input">
+      <label>Názov kategórie*</label>
+      <input type="text" [(ngModel)]="newGallery">
+    </div>
+    <button class="add-button"
+      (click)="onAddGallery()"
+      [disabled]="newGallery.length < 1"
+      [ngClass]="{'disabled-button' : newGallery.length < 1}">Pridať</button>
+  </section>
+</section>

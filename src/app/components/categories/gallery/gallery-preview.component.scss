@@ -1,0 +1,44 @@
+@import '../../../../assets/scss/functions.scss';
+@import '../../../../assets/scss/variables.scss';
+@import '../../../../assets/scss/mixins.scss';
+
+.gallery{
+  @include gallery-card();
+  figure{
+    position: relative;
+    .figure-header{
+      position: absolute;
+      top: toRem(14);
+      padding: 0 toRem(14);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      span, a{
+        background: $badge-bg;
+        color: #fff;
+        font-size: toRem(12);
+        padding: toRem(5) toRem(12);
+        border-radius: 12px;
+      }
+    }
+    img{
+      border-top-left-radius: toRem(4);
+      border-top-right-radius: toRem(4);
+      max-width: 100%;
+    }
+  }
+
+  .gallery-name{
+    width: 100%;
+    background: #fff;
+    padding: toRem(24);
+    border-bottom-left-radius: toRem(4);
+    border-bottom-right-radius: toRem(4);
+
+    h3{
+      text-align: center;
+      font-size: toRem(16);
+      font-weight: 500;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<div class="categories-container">
+  <h5>Kategórie</h5>
+  <section class="list-of-galleries">
+    <div *ngFor="let gallery of allGalleries$ | async">
+      <app-gallery-preview [gallery]="gallery"></app-gallery-preview>
+    </div>
+    <app-add-gallery></app-add-gallery>
+  </section>
+</div>
