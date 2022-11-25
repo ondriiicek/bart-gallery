@@ -1,0 +1,20 @@
+@import '../../../assets/scss/functions.scss';
+
+.categories-container{
+  width: 100%;
+  text-align: left;
+  margin-bottom: toRem(40);
+  h5{
+    font-size: toRem(18);
+    font-weight: 400;
+    margin-bottom: toRem(40);
+  }
+
+  .list-of-galleries{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: toRem(32);
+  }
+}

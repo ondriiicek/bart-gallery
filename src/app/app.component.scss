@@ -1,0 +1,16 @@
+@import '../assets/scss/functions.scss';
+
+.container{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: toRem(1300);
+  height: 100vh;
+  padding: toRem(30);
+  h1{
+    align-self: flex-start;
+    font-size: toRem(40);
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+}

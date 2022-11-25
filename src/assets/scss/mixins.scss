@@ -1,0 +1,7 @@
+@import './variables.scss';
+@import './functions.scss';
+
+@mixin gallery-card {
+  box-shadow: 0px 4px 24px $shadow-color;
+  border-radius: toRem(4);
+}

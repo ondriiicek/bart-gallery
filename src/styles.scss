@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/scss/variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Barlow', sans-serif;
+  color: $font-color;
+  background: $bg-color;
+}
+
+a{
+  text-decoration: none;
+  color: $font-color;
+  cursor: pointer;
+}
+
+li{
+  list-style-type: none;
+}
