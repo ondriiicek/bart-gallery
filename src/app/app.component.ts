@@ -7,9 +7,5 @@ import { ApiService } from './shared/services/api.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  eidt : boolean = false;
-
-  openModal(){
-    this.eidt = true;
-  }
+  
 }
