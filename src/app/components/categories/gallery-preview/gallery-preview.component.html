@@ -1,0 +1,30 @@
+<div class="gallery">
+  <a *ngIf="gallery">
+    <figure>
+      <div class="figure-header">
+        <span *ngIf="numOfImages"> {{numOfImages}} </span>
+        <a (click)="deleteGallery()"><i class="pi pi-trash"></i></a>
+      </div>
+      <img *ngIf="gallery.image" 
+           [src]="'http://api.programator.sk/images/305x304/'+gallery.image!.fullpath" 
+           alt="Gallery preview image"
+           class="skeleton"
+           (click)="navigateInsideGallery()">
+      <img *ngIf="!gallery.image" 
+           class="no-image"
+           src="./assets/images/image-preview.png" 
+           alt="Gallery preview image"
+           (click)="navigateInsideGallery()">
+    </figure>
+
+    <div class="gallery-name"
+      (click)="navigateInsideGallery()">
+      <h3> {{gallery.name | titlecase}} </h3>
+    </div>
+  </a>
+</div>
+
+<p-confirmDialog 
+  header="Potvrdenie" 
+  icon="pi pi-exclamation-triangle"
+  [style]="{width: '50vw'}"></p-confirmDialog>

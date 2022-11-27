@@ -1,20 +1,45 @@
 @import '../../../assets/scss/functions.scss';
+@import '../../../assets/scss/mixins.scss';
 
 .categories-container{
   width: 100%;
   text-align: left;
   margin-bottom: toRem(40);
+  display: flex;
+  flex-direction: column;
   h5{
-    font-size: toRem(18);
-    font-weight: 400;
-    margin-bottom: toRem(40);
+    @include h5-settings;
   }
 
-  .list-of-galleries{
-    width: 100%;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(4, 1fr);
-    gap: toRem(32);
+  .search-input{
+    align-self: center;
+    margin-bottom: toRem(40);
+    margin-top: toRem(10);
+    padding: toRem(10) 0;
+    border: none;
+    border-bottom: 2.5px solid #ccc;
+    background: transparent;
+    width: toRem(500);
+    outline: none;
+    text-align: center;
+    font-size: toRem(18);
+    
+    &:focus::placeholder{
+      color: transparent;
+    }
+  }
+
+  @include subpage-container-settings;
+}
+
+@media (max-width: toRem(1000)){
+  .categories-container .search-input{
+    width: toRem(300);
+  }
+}
+
+@media (max-width: toRem(310)){
+  .categories-container .search-input{
+    width: 90%;
   }
 }

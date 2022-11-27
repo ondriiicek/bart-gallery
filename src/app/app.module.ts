@@ -8,7 +8,6 @@ import { ToastModule } from 'primeng/toast'
 import { AppComponent } from './app.component';
 import { BaseUrlInterceptor } from './shared/interceptors/base-url.interceptor';
 import { ApiErrorInterceptor } from './shared/interceptors/api-error.interceptor';
-import { ToastMessageService } from './shared/services/toast-message.service';
 import { MessageService } from 'primeng/api';
 
 @NgModule({

@@ -1,9 +1,24 @@
 @import '../../../../assets/scss/functions.scss';
 @import '../../../../assets/scss/variables.scss';
 @import '../../../../assets/scss/mixins.scss';
+@import '../../../../assets/scss/keyframes.scss';
+
+::ng-deep .p-dialog .p-dialog-footer .p-button:nth-child(1){
+  background: #000;
+  opacity: .4;
+}
+
+::ng-deep .p-dialog .p-dialog-footer .p-button:nth-child(2){
+  background: #000;
+}
 
 .gallery{
   @include gallery-card();
+  .skeleton{
+    height: toRem(285);
+    width: toRem(304);
+    @include skeleton;
+  }
   figure{
     position: relative;
     .figure-header{
@@ -18,13 +33,17 @@
         color: #fff;
         font-size: toRem(12);
         padding: toRem(5) toRem(12);
-        border-radius: 12px;
+        border-radius: toRem(12);
       }
     }
     img{
       border-top-left-radius: toRem(4);
       border-top-right-radius: toRem(4);
       max-width: 100%;
+    }
+
+    .no-image{
+      width: toRem(287);
     }
   }
 

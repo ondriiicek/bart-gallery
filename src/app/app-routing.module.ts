@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'categories', pathMatch: 'full' },
+  { path: '', redirectTo: 'galleries', pathMatch: 'full' },
   { 
-    path: 'categories', 
-    loadChildren: () => import('./components/categories/galleries.module').then(m => m.CategoriesModule) 
+    path: 'galleries', 
+    loadChildren: () => import('./components/categories/galleries.module').then(m => m.GalleriesModule) 
+  },
+  {
+    path: 'photos/:id',
+    loadChildren: () => import('./components/gallery-images/gallery-images.module').then(m => m.GalleryImagesModule)
   }
 ];
 

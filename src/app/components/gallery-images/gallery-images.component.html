@@ -1,0 +1,38 @@
+<div *ngIf="images"
+  class="images-container">
+  <a class="subtitle"
+    routerLink="../../galleries">
+    <i class="pi pi-arrow-left"></i>
+    <h5>{{galleryName | titlecase}}</h5>
+  </a>
+  <section class="subpage-container" >
+    <a *ngFor="let image of images; let i = index"
+      class="image-link">
+
+      <img [src]="'http://api.programator.sk/images/304x295/' + image.fullpath"
+        class="skeleton" 
+        loading="lazy"
+        height="295px"
+        width="304px"
+        (click)="openCarousel(i)">
+
+      <button class="delete-image" (click)="onDeleteImage(image)"><i class="pi pi-trash"></i></button>
+    </a>
+    <app-add-new [title]="'fotky'"></app-add-new>
+    <app-add-image [galleryPath]="galleryName"
+      *ngIf="isModalOpen"
+      (closeModal)="onCloseModal()"></app-add-image>
+  </section> 
+</div>
+
+<p-confirmDialog 
+  header="Potvrdenie" 
+  icon="pi pi-exclamation-triangle"
+  [style]="{width: '50vw'}"></p-confirmDialog>
+
+<app-images-detail  [images]="images"
+  [clickedImageIndex]="clickedImage"
+  (closeCarousel)="closeCarousel()"
+  *ngIf="isCarouselView"></app-images-detail>
+
+
