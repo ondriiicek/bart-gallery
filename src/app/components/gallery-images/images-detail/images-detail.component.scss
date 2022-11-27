@@ -1,0 +1,110 @@
+@import '../../../../assets/scss/mixins.scss';
+@import '../../../../assets/scss/functions.scss';
+@import '../../../../assets/scss/keyframes.scss';
+
+::ng-deep .p-carousel .p-carousel-content .p-carousel-prev,
+::ng-deep .p-carousel .p-carousel-content .p-carousel-next {
+  background: #fff;
+  position: relative;
+  width: toRem(40);
+  height: toRem(40);
+}
+
+::ng-deep .p-carousel .p-carousel-content .p-carousel-prev{
+  left: toRem(24);
+  z-index: 10;
+}
+
+::ng-deep .p-carousel .p-carousel-content .p-carousel-next{
+  right: toRem(24);
+  z-index: 10;
+}
+
+.skeleton {
+  height: toRem(600);
+  width: toRem(700);
+  @include skeleton;
+}
+
+.overlay{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: #000000b2;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-container{
+  width: toRem(700);
+  height: toRem(600);
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+  .close-btn{
+    @include image-button;
+    z-index: 11;
+    right: toRem(70);
+    top: toRem(16);
+   
+
+    i{
+      font-size: toRem(13);
+    }
+  }
+
+  .carousel-img{
+    border-radius: toRem(16);
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: toRem(700)){
+  .carousel-container{
+    width: toRem(600);
+
+    .carousel-img{
+      height: toRem(400);
+    }
+    height: toRem(400);
+  }
+
+}
+
+@media (max-width: toRem(620)){
+  .carousel-container{
+    width: toRem(500);
+    height: toRem(400);
+    .carousel-img{
+      height: toRem(400);
+    }
+  }
+
+}
+
+@media (max-width: toRem(500)){
+  .carousel-container{
+    width: toRem(400);
+    height: toRem(300);
+    .carousel-img{
+      height: toRem(300);
+    }
+  }
+
+}
+
+@media (max-width: toRem(400)){
+  .carousel-container{
+    width: 90%;
+    height: toRem(200);
+    .carousel-img{
+      height: toRem(200);
+    }
+  }
+
+}

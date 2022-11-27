@@ -1,0 +1,51 @@
+@import '../../../assets/scss/mixins.scss';
+@import '../../../assets/scss/functions.scss';
+
+::ng-deep .p-dialog .p-dialog-footer .p-button{
+  background-color: #000;
+}
+
+::ng-deep .p-dialog .p-dialog-footer .p-button:nth-child(1){
+  opacity: .4;
+}
+.skeleton{
+  height: toRem(285);
+  width: toRem(304);
+  @include skeleton;
+}
+
+.images-container{
+  margin-bottom: toRem(40);
+
+  .subtitle{
+    display: flex;
+
+    i{
+      font-size: toRem(12);
+      padding-top: toRem(6);
+    }
+    h5{
+      margin-left: toRem(8);
+      @include h5-settings;
+    }
+  }
+
+  @include subpage-container-settings;
+
+  .subpage-container{
+    .image-link{
+      position: relative;
+      .delete-image{
+        @include image-button;
+        right: toRem(16);
+        top: toRem(16);
+      }
+      img{
+        max-width: 100%;
+        border-radius: toRem(4);
+      }
+    }
+
+    
+  }
+}

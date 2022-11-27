@@ -1,0 +1,32 @@
+@import '../../../../assets/scss/mixins.scss';
+@import '../../../../assets/scss/functions.scss';
+
+.add-new{
+  @include gallery-card;
+  background: #fff;
+  height: toRem(285);
+  width: toRem(304);
+  
+  a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .plus{
+      opacity: 32%;
+      border: 2px solid rgba(0,0,0,.32);
+      border-radius: toRem(6);
+      line-height: 0;
+      padding: {
+        top: toRem(9);
+        right: toRem(5);
+        bottom: toRem(12.5);
+        left: toRem(5);
+      }
+      margin-bottom: toRem(16);
+    }
+  }
+}
