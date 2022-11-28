@@ -22,7 +22,6 @@ export class DndDirective {
     onDrop(event: any){
       this.handleEventBehavior(event);
       const files = event.dataTransfer;
-      console.log(files.files[0])
 
       if(files){
         this.fileDropped.emit(files);
