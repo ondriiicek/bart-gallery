@@ -46,7 +46,7 @@
         border: 2px solid #000;
         padding: toRem(14) toRem(32);
         border-radius: toRem(4);
-        margin-bottom: toRem(72);
+        margin-bottom: toRem(50);
         font-size: toRem(16);
         font-weight: 600;
         cursor: pointer;
@@ -57,22 +57,26 @@
       }
 
       .file-name{
-        margin-top: toRem(20);
-        p{
-          margin: 0;
+        .list-of-chosen{
+          display: flex;
+          justify-content: center;
+          p{
+            margin: 0;
+          }
+
+          a{
+            padding: toRem(.8) toRem(10);
+            i{
+              font-size: toRem(10);
+              color: red;
+            }
+          }
         }
       }
     }
 
     .add-button{
-      width: 100%;
-      font-size: toRem(16);
-      color: #fff;
-      padding: toRem(22) 0;
-      border: none;
-      border-radius: toRem(4);
-      background: #000;
-      cursor: pointer;
+      @include modal-button;
     }
 
     .disabled-button{

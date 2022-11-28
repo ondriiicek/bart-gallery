@@ -1,5 +1,6 @@
 <div class="categories-container">
   <h5>Kategórie</h5>
+
   <input type="text" 
     [(ngModel)]="searchInput" 
     class="search-input" 
@@ -9,9 +10,10 @@
     <div *ngFor="let gallery of allGalleries | filter:searchInput">
       <app-gallery-preview [gallery]="gallery"></app-gallery-preview>
     </div>
-    <app-add-new [title]="'galériu'"></app-add-new>
+
+    <app-add-new [title]="'Pridať galériu'"></app-add-new>
+
     <app-add-gallery *ngIf="isCreationMode"
-      (closeModal)="onCloseModal()"></app-add-gallery>
+      (closeModal)="onCloseModal()"></app-add-gallery> 
   </section>
-  
 </div>

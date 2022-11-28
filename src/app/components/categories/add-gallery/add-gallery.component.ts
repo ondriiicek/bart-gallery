@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { SubjectService } from 'src/app/shared/services/subject.service';
+import { ToastMessageService } from 'src/app/shared/services/toast-message.service';
 
 @Component({
   selector: 'app-add-gallery',
@@ -12,7 +13,8 @@ export class AddGalleryComponent implements OnInit {
   newGallery: string = '';
 
   constructor(private apiService: ApiService,
-              private subjectService: SubjectService) { }
+              private subjectService: SubjectService,
+              private toastMessageService: ToastMessageService) { }
 
   ngOnInit(): void {}
 
@@ -22,8 +24,12 @@ export class AddGalleryComponent implements OnInit {
   }
 
   onAddGallery(){
-    this.apiService.createGallery(this.newGallery);
-    this.onCloseModal();
+    if(this.newGallery.includes('/')){
+      this.toastMessageService.errorToast(`Názov galérie nesmie obsahovať ' / '`);
+    }else{
+      this.apiService.createGallery(this.newGallery);
+      this.onCloseModal();
+    }
   }
 
 }

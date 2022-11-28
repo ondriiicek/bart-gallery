@@ -111,6 +111,17 @@
   }
 }
 
+@mixin modal-button {
+  width: 100%;
+  font-size: toRem(16);
+  color: #fff;
+  padding: toRem(22) 0;
+  border: none;
+  border-radius: toRem(4);
+  background: #000;
+  cursor: pointer;
+}
+
 @mixin responsivity{
   @media (max-width: toRem(1300)) {
     .subpage-container{

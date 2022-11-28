@@ -24,8 +24,7 @@ export class ApiService {
   //RETURN ALL GALLERIES IN DATABASE
   getAllGalleries(): Observable<Gallery[]>{
     return this.http.get<Galleries>(ApiService.GALLERIES_URL)
-      .pipe( map( data => data.galleries),
-        tap(data => console.log(data)))
+      .pipe( map( data => data.galleries))
   }
 
   //CREATE GALLERY
@@ -33,10 +32,10 @@ export class ApiService {
     const headers = new HttpHeaders()
       .set('content-type', 'application/json');
 
-    this.http.post<Gallery>(ApiService.GALLERIES_URL, {name: newGallery}, {headers: headers})
+    return this.http.post<Gallery>(ApiService.GALLERIES_URL, {name: newGallery}, {headers: headers})
       .subscribe(res => {
         this.subjectService.pushNewGallery(res);
-        this.toastMessageService.succesToast(`Galéria ${newGallery} bola úspešne vytvorená.`)
+        this.toastMessageService.succesToast(`Galéria '${newGallery}' bola úspešne vytvorená.`)
       });
   }
 

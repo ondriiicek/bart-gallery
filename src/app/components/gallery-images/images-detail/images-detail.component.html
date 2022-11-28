@@ -4,17 +4,20 @@
       [numVisible]="1" 
       [numScroll]="1" 
       [showIndicators]="false">
+
       <ng-template pTemplate="header">
         <button class="close-btn"
           (click)="onCloseCarousel()">
           <i class="pi pi-times"></i>
         </button>
       </ng-template>
+
       <ng-template let-image pTemplate="item">
         <img [src]="'http://api.programator.sk/images/700x600/' + image.fullpath" 
           [alt]="image.name"
           class="carousel-img skeleton">
       </ng-template>
+      
     </p-carousel>
   </div>
 </div>

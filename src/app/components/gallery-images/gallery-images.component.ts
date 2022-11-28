@@ -35,12 +35,7 @@ export class GalleryImagesComponent implements OnInit, OnDestroy {
         this.handleImages();
       })
 
-    this.subjectService.newImageSub$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(image => this.images.push(image))
-
-    this.subjectService.openModalSub$
-    .subscribe( data => this.isModalOpen = data)
+    this.handleSubjects();
   }
 
   openCarousel(i: number){
@@ -63,13 +58,26 @@ export class GalleryImagesComponent implements OnInit, OnDestroy {
         this.apiService.deleteImage(image);
         this.images.splice(this.images.indexOf(image), 1)
       }
-    })
+    });
   }
 
   private handleImages(){
     this.apiService.getGalleryImages(this.galleryName).subscribe(
       data => this.images = data
-    )
+    );
+  }
+
+  private handleSubjects(){
+    //if there is successful api call, function from ApiService will send new-image
+    //through subject that is provided in SubjectService 
+    this.subjectService.newImageSub$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(image => this.images.push(image));
+
+    //listens for subject changes so it knows whe to open modal (emit in shared/component/add-new)
+    this.subjectService.openModalSub$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe( data => this.isModalOpen = data);
   }
 
   ngOnDestroy(): void {

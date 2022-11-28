@@ -6,6 +6,7 @@ export class GalleryService {
 
   constructor() { }
 
+  //for proper case ending  
   handleNumOfImages(length: number): string{
     let finalString;
     
@@ -22,6 +23,7 @@ export class GalleryService {
     return finalString;
   }
 
+  //local gallery deletion, to make it real time
   removeGallery(path: string, allGalleries: Gallery[]): Gallery[]{
     let newArrOfGalleries : Gallery[] = [];
     allGalleries.forEach(item => {

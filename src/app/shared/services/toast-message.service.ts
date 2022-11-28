@@ -14,7 +14,6 @@ export class ToastMessageService {
   }
 
   errorToast(message: string){
-    console.log(message)
     this.messageService.add({severity: 'error', detail: message});
   }
 }

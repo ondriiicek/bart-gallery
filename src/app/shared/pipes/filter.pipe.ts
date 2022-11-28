@@ -11,9 +11,9 @@ export class FilterPipe implements PipeTransform {
     const newArr: Gallery[] = [];
 
     if( galleries ){
-      galleries.forEach( gallerie => {
-        if(gallerie.name.toLocaleLowerCase().indexOf(inputText.toLocaleLowerCase()) > -1){
-          newArr.push(gallerie);
+      galleries.forEach( gallery => {
+        if(gallery.name.toLocaleLowerCase().indexOf(inputText.toLocaleLowerCase()) > -1){
+          newArr.push(gallery);
         }
       })
     }

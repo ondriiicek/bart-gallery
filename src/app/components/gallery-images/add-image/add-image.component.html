@@ -3,28 +3,36 @@
   
   <section class="create-gallery">
     <div class="header">
-      <h3>Pridať kategóriu</h3>
+      <h3>Pridať fotky</h3>
       <a (click)="onCloseModal()"><i class="pi pi-times"></i></a>
     </div>
+
     <div class="input-area">
       <i class="pi pi-image"></i>
       <p class="drop-file">Sem presunte fotky <small>alebo</small> </p>
       
       <label class="choose-file" [ngClass]="{'no-margin': fileNames.length > 0}">
-        <input type="file" 
+        <input type="file"
+          accept="image/jpeg" 
           multiple
           (change)="handleFileInput($event.target)">
-          Vyberte súbory
+          Vyberte súbory (.jpg)
       </label>
 
-      <div class="file-name">
-        <div *ngFor="let file of fileNames; let i = index">
-          <p *ngIf="i < 2">{{file}}</p>
-          <p *ngIf="i > 1"> {{fileNames.length - i}} ďalšie</p>
+      <div class="file-name" *ngIf="chosenImages">
+        
+        <div *ngFor="let image of chosenImages; let i = index">
+          <div *ngIf="i < 2;"
+            class="list-of-chosen">
+            <p>{{image.name}}</p>
+            <a (click)="onRemoveFromInput(image)"><i class="pi pi-times"></i></a>
+          </div>
         </div>
-      </div>
 
+        <p *ngIf="chosenImages!.length > 2">{{ chosenImages!.length - 2 }} ďalšie</p>
+      </div>
     </div>
+
     <button class="add-button"
       (click)="onUploadImage()">Pridať</button>
   </section>

@@ -21,6 +21,7 @@ export class ApiErrorInterceptor implements HttpInterceptor {
     return next.handle(request)
       .pipe(
         catchError((httpError: HttpErrorResponse) => {
+          console.log(httpError.error)
           switch(httpError.status){
             case 400: this.toastMessageService.errorToast('Pislušný súbor neexistuje.');
               break;
@@ -29,6 +30,8 @@ export class ApiErrorInterceptor implements HttpInterceptor {
             case 409: this.toastMessageService.errorToast('Galéria s týmto názvom už existuje.');
               break;
             case 500: this.toastMessageService.errorToast('Nastala neznáma chyba.');
+              break;
+            default: this.toastMessageService.errorToast('Niekde nastala chyba');
               break;
           }
           return throwError(httpError);

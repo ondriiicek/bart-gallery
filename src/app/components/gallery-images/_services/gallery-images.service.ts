@@ -6,6 +6,7 @@ export class GalleryImagesService {
 
   constructor() { }
 
+  //removing unwanted characters from gallery name
   handleGalleryName(value: string): string{
     if( !value.includes('%20') ){
       return value;
@@ -15,16 +16,20 @@ export class GalleryImagesService {
     return galleryName;
   }
 
-  getFileNames(images: File[] | null): string[]{
-    let fileNames = [];
+  //returning array without image that user want to remove from image file list
+  removeFromInput(images: File[] | null, unwantedIm: File): File[]{
+    let newArr = [];
     if(images){
       for(const image of images){
-        fileNames.push(image.name)
+        if(image !== unwantedIm){
+          newArr.push(image)
+        }
       }
     }
-    return fileNames;
+    return newArr;
   }
 
+  //reordering array of images, so that the first image in the carousel is the image the user clicked on
   reorderImages(images: Image[], index: number): Image[]{
     const clickedImage = images[index];
 

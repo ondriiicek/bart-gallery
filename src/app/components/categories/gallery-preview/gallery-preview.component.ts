@@ -21,15 +21,12 @@ export class GalleryPreviewComponent implements OnInit {
                private galleryService: GalleryService ) { }
 
   ngOnInit(): void {
-    this.apiService.getGalleryImages(this.gallery.path)
-      .subscribe( data => {
-        this.numOfImages = this.galleryService.handleNumOfImages(data.length);
-      })
+    this.getNumOfImages();
   }
 
   deleteGallery(){
     this.confirmationService.confirm({
-      message: 'Určite chceš vymazať túto galériu?',
+      message: 'Určite chcete vymazať túto galériu?',
       accept: () => {
         this.apiService.deleteGallery(this.gallery.path);
       }
@@ -38,5 +35,13 @@ export class GalleryPreviewComponent implements OnInit {
 
   navigateInsideGallery(){
     this.router.navigate([`photos/${this.gallery.path}`]).then();
+  }
+
+  //how many images are in each gallery
+  private getNumOfImages(){
+    this.apiService.getGalleryImages(this.gallery.path)
+      .subscribe( data => {
+        this.numOfImages = this.galleryService.handleNumOfImages(data.length);
+      })
   }
 }

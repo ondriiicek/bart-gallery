@@ -24,8 +24,7 @@ export class AddImageComponent implements OnInit {
 
   onCloseModal(){
     this.closeModal.emit();
-    this.chosenImages = null;
-    this.fileNames = [];
+    this.clearModal();
   }
 
   onUploadImage(){
@@ -37,6 +36,15 @@ export class AddImageComponent implements OnInit {
 
   handleFileInput(event : any){
     this.chosenImages = event.files;
-    this.fileNames = this.galleryImagesService.getFileNames(this.chosenImages);
+  }
+
+  //user can remove chosen image before uploading
+  onRemoveFromInput(image: File){
+    this.chosenImages = this.galleryImagesService.removeFromInput(this.chosenImages, image);
+  }
+
+  private clearModal(){
+    this.chosenImages = null;
+    this.fileNames = [];
   }
 }

@@ -18,7 +18,7 @@
 
       <button class="delete-image" (click)="onDeleteImage(image)"><i class="pi pi-trash"></i></button>
     </a>
-    <app-add-new [title]="'fotky'"></app-add-new>
+    <app-add-new [title]="'Pridať fotky'"></app-add-new>
     <app-add-image [galleryPath]="galleryName"
       *ngIf="isModalOpen"
       (closeModal)="onCloseModal()"></app-add-image>
